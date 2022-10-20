@@ -1,5 +1,6 @@
 #!/bin/bash
 
+CHECK_MARK="\033[1;32m\xE2\x9C\x94\033[0m"
 repo=(cogo-ml cogo-product front-saas cogoport-back) #packages-utils
 
 cd ~/Desktop &&
@@ -9,9 +10,15 @@ do
     FILE=${repo[i]}
 
     if [ ! -d "$FILE" ]; then 
-        echo "$FILE does not exist on Desktop ----- cloning it"
-        git clone git@github.com:Cogoport/${repo[i]}.git
-    
+        echo -ne "\033[1;31m\xE2\x9D\x8C\033[0m $FILE does not exist on Desktop. Press y to clone it?"
+        read clone_response
+
+        if [ $clone_response=='y' ];
+        then
+            echo "Cloning $FILE...."
+            git clone git@github.com:Cogoport/${repo[i]}.git
+            echo -e "\r${CHECK_MARK} Cloned $FILE"
+        fi
     else
         echo "" &&
         echo "#####-----${repo[i]}-----#####" &&
@@ -22,7 +29,7 @@ do
         cd ..
 
         echo "" &&
-        echo "#####-----${repo[i]} updated-----#####" &&
+        echo -e "#####-----\r${CHECK_MARK} ${repo[i]} updated-----#####" &&
         echo "" &&
         sleep 0.2
     fi
