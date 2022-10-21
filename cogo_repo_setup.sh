@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHECK_MARK="\033[1;32m\xE2\x9C\x94\033[0m"
-repo=(cogo-ml cogo-product front-saas cogoport-back) #packages-utils
+repo=(cogo-ml cogo-product front-saas cogoport-back) #athena packages-utils
 
 cd ~/Desktop &&
 
@@ -14,7 +14,7 @@ do
         read clone_response
         echo ''
 
-        if [ $clone_response=='y' ]; then
+        if [ "$clone_response" == "y" ] ; then
             echo "Cloning $FILE...."
             git clone git@github.com:Cogoport/${repo[i]}.git
             echo -e "\r${CHECK_MARK} Cloned $FILE"
