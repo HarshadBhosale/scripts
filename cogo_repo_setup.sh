@@ -9,9 +9,10 @@ for ((i = 0; i < ${#repo[*]}; i++))
 do
     FILE=${repo[i]}
 
-    if [ ! -d "$FILE" ]; then 
-        echo -ne "\033[1;31m\xE2\x9D\x8C\033[0m $FILE does not exist on Desktop. Press y to clone it?"
+    if [ ! -d "$FILE" ]; then
+        echo -ne "\033[1;31m\xE2\x9D\x8C\033[0m $FILE does not exist on Desktop. Press y to clone it? "
         read clone_response
+        echo ''
 
         if [ $clone_response=='y' ]; then
             echo "Cloning $FILE...."
@@ -28,8 +29,10 @@ do
         cd ..
 
         echo "" &&
-        echo -e "#####-----\r${CHECK_MARK} ${repo[i]} updated-----#####" &&
+        echo -e "${CHECK_MARK} ${repo[i]} updated " &&
         echo "" &&
-        sleep 0.2
+        sleep 0.1
     fi
 done
+
+echo 'Made with ❤️  From Harshosale'
