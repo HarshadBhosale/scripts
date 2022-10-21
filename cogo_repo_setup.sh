@@ -13,8 +13,7 @@ do
         echo -ne "\033[1;31m\xE2\x9D\x8C\033[0m $FILE does not exist on Desktop. Press y to clone it?"
         read clone_response
 
-        if [ $clone_response=='y' ];
-        then
+        if [ $clone_response=='y' ]; then
             echo "Cloning $FILE...."
             git clone git@github.com:Cogoport/${repo[i]}.git
             echo -e "\r${CHECK_MARK} Cloned $FILE"
