@@ -18,6 +18,10 @@ do
             echo "Cloning $FILE...."
             git clone git@github.com:Cogoport/$FILE.git
             echo -e "\r${CHECK_MARK} Cloned $FILE"
+            cd $FILE &&
+            if [ "$FILE" == "front-saas" ] || [ "$FILE" == "cogo-product" ] ; then
+                yarn install
+            fi
         fi
     else
         echo "" &&
@@ -26,6 +30,9 @@ do
 
         cd $FILE &&
         git pull &&
+        if [ "$FILE" == "front-saas" ] || [ "$FILE" == "cogo-product" ] ; then
+            yarn install
+        fi
         cd ..
 
         echo "" &&
@@ -34,9 +41,6 @@ do
         sleep 0.1
     fi
 
-    if [ "$FILE" == "front-saas" ] || [ "$FILE" == "cogo-product" ] ; then
-        yarn install
-    fi
 done
 
 echo 'Made with ❤️  From Harshosale'
