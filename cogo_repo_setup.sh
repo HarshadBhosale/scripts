@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHECK_MARK="\033[1;32m\xE2\x9C\x94\033[0m"
-repo=(cogo-ml cogo-product front-saas cogoport-back) #athena packages-utils
+repo=(cogo-ml front-saas cogo-product cogoport-back)
 
 cd ~/Desktop &&
 
@@ -16,22 +16,26 @@ do
 
         if [ "$clone_response" == "y" ] ; then
             echo "Cloning $FILE...."
-            git clone git@github.com:Cogoport/${repo[i]}.git
+            git clone git@github.com:Cogoport/$FILE.git
             echo -e "\r${CHECK_MARK} Cloned $FILE"
         fi
     else
         echo "" &&
-        echo "#####-----${repo[i]}-----#####" &&
+        echo "#####-----$FILE-----#####" &&
         echo "" &&
 
-        cd ${repo[i]} &&
+        cd $FILE &&
         git pull &&
         cd ..
 
         echo "" &&
-        echo -e "${CHECK_MARK} ${repo[i]} updated " &&
+        echo -e "${CHECK_MARK} $FILE updated " &&
         echo "" &&
         sleep 0.1
+    fi
+
+    if [ "$FILE" == "front-saas" ] || [ "$FILE" == "cogo-product" ] ; then
+        yarn install
     fi
 done
 
