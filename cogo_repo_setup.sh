@@ -11,6 +11,11 @@ function checkForYarn {
     fi
 }
 
+function updateScripts {
+    cd scripts &&
+    git pull
+}
+
 cd ~/Desktop &&
 
 for ((i = 0; i < ${#repo[*]}; i++))
@@ -48,6 +53,8 @@ do
         sleep 0.1
     fi
 done
+
+updateScripts
 
 echo $END_MESSAGE
 
