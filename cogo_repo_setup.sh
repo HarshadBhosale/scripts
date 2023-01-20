@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHECK_MARK="\033[1;32m\xE2\x9C\x94\033[0m"
-repo=(cogo-ml front-saas cogo-product cogoport-back)
+repo=(cogo-ml front-saas cogo-product cogoport-back cogo-maps loki plutus)
 repo_need_yarn=(front-saas cogo-product)
 END_MESSAGE='Made with ❤️  From Harshosale'
 
@@ -33,7 +33,8 @@ do
             echo -e "\r${CHECK_MARK} Cloned $FILE"
 
             cd $FILE &&
-            checkForYarn $FILE
+            checkForYarn $FILE 
+            cd ..
         fi
     else
         echo &&
@@ -60,3 +61,11 @@ echo $END_MESSAGE
 
 
 
+
+# check for position of folder on desktop like \_/
+#                                               |
+# Look for hollow/pretty printing
+            
+# |   |  /\  |¯¯¯|
+# |---| /--\ |___|
+# |   |/    \|\
