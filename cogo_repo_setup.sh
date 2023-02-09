@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHECK_MARK="\033[1;32m\xE2\x9C\x94\033[0m"
-repo=(cogo-ml front-saas cogo-product cogoport-back cogo-maps loki plutus)
+repo=(cogo-ml front-saas cogo-product cogoport-back cogo-maps loki plutus kuber)
 repo_need_yarn=(front-saas cogo-product)
 END_MESSAGE='Made with ❤️  From Harshosale'
 
@@ -12,10 +12,11 @@ function checkForYarn {
 }
 
 function updateScripts {
-    cd scripts &&
+    cd SCRIPTS_PATH &&
     git pull
 }
 
+SCRIPTS_PATH=$(pwd) &&
 cd ~/Desktop &&
 
 for ((i = 0; i < ${#repo[*]}; i++))
@@ -59,13 +60,3 @@ updateScripts
 
 echo $END_MESSAGE
 
-
-
-
-# check for position of folder on desktop like \_/
-#                                               |
-# Look for hollow/pretty printing
-            
-# |   |  /\  |¯¯¯|
-# |---| /--\ |___|
-# |   |/    \|\
