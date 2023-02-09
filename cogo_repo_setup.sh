@@ -12,7 +12,7 @@ function checkForYarn {
 }
 
 function updateScripts {
-    cd SCRIPTS_PATH &&
+    cd $SCRIPTS_PATH &&
     git pull
 }
 
