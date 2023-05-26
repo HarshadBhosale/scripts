@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CHECK_MARK="\033[1;32m\xE2\x9C\x94\033[0m"
-repo=(cogo-ml front-saas cogo-product cogoport-back cogo-maps loki plutus kuber)
+repo=(cogo-ml front-saas cogo-product cogoport-back cogo-maps loki plutus kuber brahma polyglot hades cogo-admin cogo-partner)
 repo_need_yarn=(front-saas cogo-product)
 END_MESSAGE='Made with ❤️  From Harshosale'
 
@@ -60,3 +60,11 @@ updateScripts
 
 echo $END_MESSAGE
 
+
+# check for position of folder on desktop like \_/
+#                                               |
+# Look for hollow/pretty printing
+            
+# |   |  /\  |¯¯¯|
+# |---| /--\ |___|
+# |   |/    \|\
